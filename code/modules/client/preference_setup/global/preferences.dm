@@ -203,7 +203,7 @@ var/list/_client_preferences_by_type
 /datum/client_preference/chat_position
 	description = "Alternative Chat Position"
 	key = "CHAT_ALT"
-	default_value = GLOB.PREF_YES
+	default_value = GLOB.PREF_NO
 
 /datum/client_preference/chat_position/changed(mob/preference_mob, new_value)
 	if(preference_mob.client)
