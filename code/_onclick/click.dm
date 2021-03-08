@@ -160,7 +160,8 @@
 
 // Default behavior: ignore double clicks, the second click that makes the doubleclick call already calls for a normal click
 /mob/proc/DblClickOn(var/atom/A, var/params)
-	. = A.show_atom_list_for_turf(src, get_turf(A))
+	// . = A.show_atom_list_for_turf(src, get_turf(A)) //causes massive lag in combat
+	return
 
 /*
 	Translates into attack_hand, etc.
