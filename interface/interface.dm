@@ -92,7 +92,8 @@ Hotkey-Mode: (hotkey-mode must be on)
 \te = equip
 \tr = throw
 \tt = say
-\t5 = emote
+\tm = emote
+\to = ooc
 \tx = swap-hand
 \tz = activate held object (or y)
 \tj = toggle-aiming-mode
@@ -146,6 +147,7 @@ Hotkey-Mode: (hotkey-mode must be on)
 \tw = up
 \tq = unequip active module
 \tt = say
+\to = ooc
 \tx = cycle active modules
 \tz = activate held object (or y)
 \tf = cycle-intents-left
@@ -154,7 +156,7 @@ Hotkey-Mode: (hotkey-mode must be on)
 \t2 = activate module 2
 \t3 = activate module 3
 \t4 = toggle intents
-\t5 = emote
+\tm = emote
 </font>"}
 
 	var/robot_other = {"<font color='purple'>
