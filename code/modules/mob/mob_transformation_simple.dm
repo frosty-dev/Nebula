@@ -40,10 +40,7 @@
 	if(src.dna)
 		M.dna = src.dna.Clone()
 
-	if(mind)
-		mind.transfer_to(M)
-	else
-		M.key = key
+	M.key = key
 
 	if(subspecies && istype(M,/mob/living/carbon/human))
 		var/mob/living/carbon/human/H = M
