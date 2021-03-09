@@ -96,7 +96,7 @@
 //MALF
 /datum/universal_state/nuclear_explosion/malf/start_cinematic_intro()
 	for(var/mob/M in GLOB.player_list) //I guess so that people in the lobby only hear the explosion
-		to_chat(M, sound('sound/machines/Alarm.ogg'))
+		M << sound('sound/machines/Alarm.ogg')
 
 	sleep(28)
 
