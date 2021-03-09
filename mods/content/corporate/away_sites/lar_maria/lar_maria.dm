@@ -6,7 +6,7 @@
 	desc = "Sensors detect an orbital station with low energy profile and sporadic life signs."
 	icon_state = "object"
 	known = 0
-	
+
 
 /datum/map_template/ruin/away_site/lar_maria
 	name = "Lar Maria"
@@ -225,4 +225,4 @@
 
 /obj/item/paper/lar_maria/note_9
 	name = "paper note"
-	info = "<i><font color='blue'>can we get some fresh carp sometime? Or freshish? Or frozen? I just really want carp, ok? I'm willing to pay for it if so.</font></i>"
+	info = "<i><span class='info'>can we get some fresh carp sometime? Or freshish? Or frozen? I just really want carp, ok? I'm willing to pay for it if so.</span></i>"

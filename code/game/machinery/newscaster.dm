@@ -868,7 +868,7 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 /obj/item/newspaper/attackby(obj/item/W, mob/user)
 	if(istype(W, /obj/item/pen))
 		if(src.scribble_page == src.curr_page)
-			to_chat(user, "<FONT COLOR='blue'>There's already a scribble in this page... You wouldn't want to make things too cluttered, would you?</FONT>")
+			to_chat(user, "<span class='info'>There's already a scribble in this page... You wouldn't want to make things too cluttered, would you?</span>")
 		else
 			var/s = sanitize(input(user, "Write something", "Newspaper", ""))
 			s = user.handle_writing_literacy(user, sanitize(s))

@@ -52,7 +52,7 @@
 /obj/item/clothing/ring/reagent/equipped(var/mob/living/carbon/human/H)
 	..()
 	if(istype(H) && H.gloves==src)
-		to_chat(H, "<font color='blue'><b>You feel a prick as you slip on the ring.</b></font>")
+		to_chat(H, "<span class='info'><b>You feel a prick as you slip on the ring.</b></span>")
 
 		if(reagents.total_volume)
 			if(H.reagents)
@@ -70,7 +70,7 @@
 /obj/item/clothing/ring/reagent/sleepy/Initialize()
 	. = ..()
 	reagents.add_reagent(/decl/material/liquid/paralytics, 10) // Less than a sleepy-pen, but still enough to knock someone out
-	reagents.add_reagent(/decl/material/liquid/sedatives, 5)  
+	reagents.add_reagent(/decl/material/liquid/sedatives, 5)
 
 /////////////////////////////////////////
 //Seals and Signet Rings

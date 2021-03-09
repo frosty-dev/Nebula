@@ -853,6 +853,7 @@ menu "menu"
 	elem "icon128"
 		name = "&128x128"
 		command = "SetWindowIconSize 128"
+		command = ".winset \"mapwindow.map.icon-size=128\""
 		category = "&Size"
 		can-check = true
 		group = "size"
@@ -1033,7 +1034,6 @@ window "mapwindow"
 		is-visible = false
 		is-disabled = true
 		saved-params = ""
-		auto-format = false
 
 window "outputwindow"
 	elem "outputwindow"
@@ -1049,6 +1049,15 @@ window "outputwindow"
 		can-minimize = false
 		can-resize = false
 		is-pane = true
+	elem "browseroutput"
+		type = BROWSER
+		pos = 0,0
+		size = 640x480
+		anchor1 = 0,0
+		anchor2 = 100,100
+		background-color = #ffffff
+		is-visible = false
+		saved-params = ""
 	elem "output"
 		type = OUTPUT
 		pos = 0,0

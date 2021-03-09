@@ -443,9 +443,9 @@
 /obj/item/rig_module/power_sink/proc/drain_complete(var/mob/living/M)
 
 	if(!interfaced_with)
-		if(M) to_chat(M, "<font color='blue'><b>Total power drained:</b> [round(total_power_drained*CELLRATE)] Wh.</font>")
+		if(M) to_chat(M, "<span class='info'><b>Total power drained:</b> [round(total_power_drained*CELLRATE)] Wh.</span>")
 	else
-		if(M) to_chat(M, "<font color='blue'><b>Total power drained from [interfaced_with]:</b> [round(total_power_drained*CELLRATE)] Wh.</font>")
+		if(M) to_chat(M, "<span class='info'><b>Total power drained from [interfaced_with]:</b> [round(total_power_drained*CELLRATE)] Wh.</span>")
 		interfaced_with.drain_power(0,1,0) // Damage the victim.
 
 	drain_loc = null

@@ -26,6 +26,11 @@
 	*/
 	preload_rsc = 0
 
+	///goonchat chatoutput of the client
+	var/datum/chatOutput/chatOutput
+
+	var/fullscreen = FALSE
+
 	// * Sound stuff *
 	var/ambience_playing = null
 	var/played = 0

@@ -246,7 +246,7 @@
 	if(!failed_to_seal)
 
 		if(!instant)
-			wearer.visible_message("<font color='blue'>[wearer]'s suit emits a quiet hum as it begins to adjust its seals.</font>","<font color='blue'>With a quiet hum, the suit begins running checks and adjusting components.</font>")
+			wearer.visible_message("<span class='info'>[wearer]'s suit emits a quiet hum as it begins to adjust its seals.</font>","<font color='blue'>With a quiet hum, the suit begins running checks and adjusting components.</span>")
 			if(seal_delay && !do_after(wearer,seal_delay, src))
 				if(wearer) to_chat(wearer, "<span class='warning'>You must remain still while the suit is adjusting the components.</span>")
 				failed_to_seal = 1
@@ -277,7 +277,7 @@
 				)
 			)
 			for(var/list/piece_data in data_to_iterate)
-			
+
 				var/obj/item/piece = piece_data[1]
 				var/obj/item/compare_piece = piece_data[2]
 				var/msg_type = piece_data[3]
@@ -297,16 +297,16 @@
 
 					switch(msg_type)
 						if("boots")
-							to_chat(wearer, "<font color='blue'>\The [piece] [!seal_target ? "seal around your feet" : "relax their grip on your legs"].</font>")
+							to_chat(wearer, "<span class='info'>\The [piece] [!seal_target ? "seal around your feet" : "relax their grip on your legs"].</span>")
 							wearer.update_inv_shoes()
 						if("gloves")
-							to_chat(wearer, "<font color='blue'>\The [piece] [!seal_target ? "tighten around your fingers and wrists" : "become loose around your fingers"].</font>")
+							to_chat(wearer, "<span class='info'>\The [piece] [!seal_target ? "tighten around your fingers and wrists" : "become loose around your fingers"].</span>")
 							wearer.update_inv_gloves()
 						if("chest")
-							to_chat(wearer, "<font color='blue'>\The [piece] [!seal_target ? "cinches tight again your chest" : "releases your chest"].</font>")
+							to_chat(wearer, "<span class='info'>\The [piece] [!seal_target ? "cinches tight again your chest" : "releases your chest"].</span>")
 							wearer.update_inv_wear_suit()
 						if("helmet")
-							to_chat(wearer, "<font color='blue'>\The [piece] hisses [!seal_target ? "closed" : "open"].</font>")
+							to_chat(wearer, "<span class='info'>\The [piece] hisses [!seal_target ? "closed" : "open"].</span>")
 							wearer.update_inv_head()
 							if(helmet)
 								helmet.update_light(wearer)
@@ -334,12 +334,12 @@
 
 	// Success!
 	canremove = seal_target
-	to_chat(wearer, "<font color='blue'><b>Your entire suit [canremove ? "loosens as the components relax" : "tightens around you as the components lock into place"].</b></font>")
+	to_chat(wearer, "<span class='info'><b>Your entire suit [canremove ? "loosens as the components relax" : "tightens around you as the components lock into place"].</b></span>")
 	if(!canremove && update_visible_name)
 		visible_name = wearer.real_name
 
 	if(wearer != initiator)
-		to_chat(initiator, "<font color='blue'>Suit adjustment complete. Suit is now [canremove ? "unsealed" : "sealed"].</font>")
+		to_chat(initiator, "<span class='info'>Suit adjustment complete. Suit is now [canremove ? "unsealed" : "sealed"].</span>")
 
 	if(canremove)
 		for(var/obj/item/rig_module/module in installed_modules)
@@ -665,7 +665,7 @@
 	..()
 
 	if(seal_delay > 0 && istype(M) && M.back == src)
-		M.visible_message("<font color='blue'>[M] starts putting on \the [src]...</font>", "<font color='blue'>You start putting on \the [src]...</font>")
+		M.visible_message("<span class='info'>[M] starts putting on \the [src]...</font>", "<font color='blue'>You start putting on \the [src]...</span>")
 		if(!do_after(M,seal_delay,src))
 			if(M && M.back == src)
 				if(!M.unEquip(src))
@@ -674,7 +674,7 @@
 			return
 
 	if(istype(M) && M.back == src)
-		M.visible_message("<font color='blue'><b>[M] struggles into \the [src].</b></font>", "<font color='blue'><b>You struggle into \the [src].</b></font>")
+		M.visible_message("<span class='info'><b>[M] struggles into \the [src].</b></font>", "<font color='blue'><b>You struggle into \the [src].</b></span>")
 		wearer = M
 		wearer.wearing_rig = src
 		update_icon()
@@ -724,7 +724,7 @@
 				holder = use_obj.loc
 				if(istype(holder))
 					if(use_obj && check_slot == use_obj)
-						to_chat(wearer, "<font color='blue'><b>Your [use_obj.name] [use_obj.gender == PLURAL ? "retract" : "retracts"] swiftly.</b></font>")
+						to_chat(wearer, "<span class='info'><b>Your [use_obj.name] [use_obj.gender == PLURAL ? "retract" : "retracts"] swiftly.</b></span>")
 						use_obj.canremove = 1
 						holder.drop_from_inventory(use_obj, src)
 						use_obj.canremove = 0
