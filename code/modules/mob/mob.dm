@@ -215,7 +215,7 @@
 	return log(2, mob_size / MOB_SIZE_MEDIUM)
 
 /mob/proc/Life()
-	SHOULD_NOT_SLEEP(TRUE)
+	SHOULD_NOT_SLEEP(FALSE)
 	if(ability_master)
 		ability_master.update_spells(0)
 

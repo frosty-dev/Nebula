@@ -47,5 +47,5 @@
 	return QDEL_HINT_QUEUE
 
 /datum/proc/Process()
-	SHOULD_NOT_SLEEP(TRUE)
+	SHOULD_NOT_SLEEP(FALSE)
 	return PROCESS_KILL

@@ -50,7 +50,7 @@
 
 /atom/proc/Initialize(mapload, ...)
 	SHOULD_CALL_PARENT(TRUE)
-	SHOULD_NOT_SLEEP(TRUE)
+	SHOULD_NOT_SLEEP(FALSE)
 	if(atom_flags & ATOM_FLAG_INITIALIZED)
 		PRINT_STACK_TRACE("Warning: [src]([type]) initialized multiple times!")
 	atom_flags |= ATOM_FLAG_INITIALIZED
