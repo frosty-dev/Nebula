@@ -96,4 +96,4 @@
 		var/obj/structure/largecrate/C = /obj/structure/largecrate
 		icon = image(initial(C.icon), initial(C.icon_state))
 
-	return html_icon(icon)
+	return icon2html(icon)

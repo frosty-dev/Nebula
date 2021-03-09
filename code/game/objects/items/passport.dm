@@ -23,7 +23,7 @@
 	else
 		fingerprint = "N/A"
 
-	info = "[icon2html(src, viewers(src))] [src]:\nName: [H.real_name]\nSpecies: [H.get_species_name()]\nGender: [gender2text(H.gender)]\nAge: [H.age]\nPlace of Birth: [pob]\nFingerprint: [fingerprint]"
+	info = "[icon2html(src,viewers(get_turf(src)))] [src]:\nName: [H.real_name]\nSpecies: [H.get_species_name()]\nGender: [gender2text(H.gender)]\nAge: [H.age]\nPlace of Birth: [pob]\nFingerprint: [fingerprint]"
 
 /obj/item/passport/attack_self(mob/user)
 	user.visible_message(

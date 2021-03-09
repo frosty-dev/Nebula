@@ -88,7 +88,7 @@
 
 	if(markings_icon && markings_color && check_state_in_icon("[ret.icon_state][markings_icon]", ret.icon))
 		ret.overlays += mutable_appearance(ret.icon, "[ret.icon_state][markings_icon]", markings_color)
-	
+
 	return ret
 
 /obj/item/clothing/on_update_icon()
@@ -162,7 +162,7 @@
 		to_chat(user, SPAN_WARNING("It has some <a href='?src=\ref[src];list_armor_damage=1'>damage</a>."))
 
 	for(var/obj/item/clothing/accessory/A in accessories)
-		to_chat(user, "[html_icon(A)] \A [A] is attached to it.")
+		to_chat(user, "[icon2html(A)] \A [A] is attached to it.")
 	switch(ironed_state)
 		if(WRINKLES_WRINKLY)
 			to_chat(user, "<span class='bad'>It's wrinkly.</span>")
@@ -189,14 +189,14 @@
 			if(length(accessories) && can_see)
 				var/list/ties = list()
 				for(var/accessory in accessories)
-					ties += "[html_icon(accessory)] \a [accessory]"
+					ties += "[icon2html(accessory)] \a [accessory]"
 				to_chat(user, "Attached to \the [src] are [english_list(ties)].")
 			return TOPIC_HANDLED
 		if(href_list["list_armor_damage"] && can_see)
 			var/datum/extension/armor/ablative/armor_datum = get_extension(src, /datum/extension/armor)
 			if(istype(armor_datum))
 				var/list/damages = armor_datum.get_visible_damage()
-				to_chat(user, "\The [src] [html_icon(src)] has some damage:")
+				to_chat(user, "\The [src] [icon2html(src, user)] has some damage:")
 				for(var/key in damages)
 					to_chat(user, "<li><b>[capitalize(damages[key])]</b> damage to the <b>[key]</b> armor.")
 			return TOPIC_HANDLED

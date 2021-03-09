@@ -146,7 +146,7 @@ var/datum/uplink/uplink = new()
 
 /datum/uplink_item/item/log_icon()
 	var/obj/I = path
-	return html_icon(I)
+	return icon2html(I)
 
 /****************
 * Support procs *

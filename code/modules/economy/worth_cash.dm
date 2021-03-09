@@ -23,7 +23,7 @@
 		update_from_worth()
 
 /obj/item/cash/get_base_value()
-	. = holographic ? 0 : absolute_worth 
+	. = holographic ? 0 : absolute_worth
 
 /obj/item/cash/proc/set_currency(var/new_currency)
 	currency = new_currency
@@ -228,22 +228,22 @@
 			to_chat(user, SPAN_WARNING("Cannot transfer funds from a locked [W]."))
 			return TRUE
 		if(sender.currency != currency)
-			to_chat(user, SPAN_WARNING("[html_icon(src)] [src] chirps, \"Mismatched currency detected. Unable to transfer.\""))
+			to_chat(user, SPAN_WARNING("[icon2html(src, user)] [src] chirps, \"Mismatched currency detected. Unable to transfer.\""))
 			return TRUE
 		var/amount = input(user, "How much of [sender.loaded_worth] do you want to transfer?", "[sender] transfer", "0") as null|num
 		if(!amount)
 			return TRUE
 		if(amount < 0 || amount > sender.loaded_worth)
-			to_chat(user, SPAN_NOTICE("[html_icon(src)] [src] chirps, \"Enter a valid number between 1 and [sender.loaded_worth] to transfer.\""))
+			to_chat(user, SPAN_NOTICE("[icon2html(src, user)] [src] chirps, \"Enter a valid number between 1 and [sender.loaded_worth] to transfer.\""))
 			return TRUE
 		sender.loaded_worth -= amount
 		loaded_worth += amount
 		sender.update_icon()
 		update_icon()
 		var/decl/currency/cur = GET_DECL(currency)
-		to_chat(user, SPAN_NOTICE("[html_icon(src)] [src] chirps, \"Completed transfer of [amount] [cur.name].\""))
+		to_chat(user, SPAN_NOTICE("[icon2html(src, user)] [src] chirps, \"Completed transfer of [amount] [cur.name].\""))
 		return TRUE
-	
+
 	if(lock.attackby(W, user))
 		return TRUE
 	return ..()
@@ -256,7 +256,7 @@
 
 /obj/item/charge_stick/attack_self(var/mob/user)
 	var/datum/extension/lockable/lock = get_extension(src, /datum/extension/lockable)
-	lock.ui_interact(user)		
+	lock.ui_interact(user)
 
 /obj/item/charge_stick/proc/is_locked()
 	var/datum/extension/lockable/lock = get_extension(src, /datum/extension/lockable)
@@ -271,7 +271,7 @@
 		overlays += I
 
 	if(get_world_inventory_state() == ICON_STATE_WORLD)
-		return 
+		return
 
 	var/datum/extension/lockable/lock = get_extension(src, /datum/extension/lockable)
 	if(lock.locked)
@@ -312,7 +312,7 @@
 
 /atom/movable/proc/GetChargeStick()
 	return null
-	
+
 /obj/item/charge_stick/GetChargeStick()
 	return src
 

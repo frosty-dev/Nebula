@@ -55,21 +55,21 @@ GLOBAL_VAR_INIT(default_gyne, create_gyne_name())
 	. = ..()
 
 	if(hatched || !health)
-		to_chat(user, "[icon2html(src, viewers(src))] \The [src] lays in shambles, having been hatched or broken.")
+		to_chat(user, "[icon2html(src,viewers(get_turf(src)))] \The [src] lays in shambles, having been hatched or broken.")
 		return
 
 	if(maturity < 5)
-		to_chat(user, "[icon2html(src, viewers(src))] \The [src] is freshly laid and sticky.")
+		to_chat(user, "[icon2html(src,viewers(get_turf(src)))] \The [src] is freshly laid and sticky.")
 	else if(maturity < 15)
-		to_chat(user, "[icon2html(src, viewers(src))] \The [src] is small and still to the touch.")
+		to_chat(user, "[icon2html(src,viewers(get_turf(src)))] \The [src] is small and still to the touch.")
 	else if(maturity < 30)
-		to_chat(user, "[icon2html(src, viewers(src))] \The [src] has swollen in size; a faint glow can be seen inside the shell.")
+		to_chat(user, "[icon2html(src,viewers(get_turf(src)))] \The [src] has swollen in size; a faint glow can be seen inside the shell.")
 	else if(maturity < 50)
-		to_chat(user, "[icon2html(src, viewers(src))] \The [src] emanates a faint glow and moves from time to time.")
+		to_chat(user, "[icon2html(src,viewers(get_turf(src)))] \The [src] emanates a faint glow and moves from time to time.")
 	else if(maturity < 75)
-		to_chat(user, "[icon2html(src, viewers(src))] \The [src] appears to be close to hatching.")
+		to_chat(user, "[icon2html(src,viewers(get_turf(src)))] \The [src] appears to be close to hatching.")
 	else
-		to_chat(user, "[icon2html(src, viewers(src))] \The [src] is lively and appears ready to hatch at any moment.")
+		to_chat(user, "[icon2html(src,viewers(get_turf(src)))] \The [src] is lively and appears ready to hatch at any moment.")
 
 /obj/structure/insectoid_egg/Process()
 	if(!health || hatched || hatching || (world.time <= (last_tick + maturity_rate)))
@@ -103,7 +103,7 @@ GLOBAL_VAR_INIT(default_gyne, create_gyne_name())
 	new_nymph.real_name = "[random_id(/decl/species/mantid, 10000, 99999)] [lineage]"
 	hatching = TRUE
 	update_icon()
-	visible_message(SPAN_NOTICE("[icon2html(src, viewers(src))] \The [src] trembles and cracks as it begins to hatch."))
+	visible_message(SPAN_NOTICE("[icon2html(src,viewers(get_turf(src)))] \The [src] trembles and cracks as it begins to hatch."))
 	addtimer(CALLBACK(src, .proc/finish_hatching), 2.5 SECONDS)
 
 
@@ -113,4 +113,4 @@ GLOBAL_VAR_INIT(default_gyne, create_gyne_name())
 	update_icon()
 	for(var/mob/M in src)
 		M.loc = get_turf(src) // Pop!
-		visible_message(SPAN_NOTICE("[icon2html(src, viewers(src))] \The [M] hatches out of \the [src]."))
+		visible_message(SPAN_NOTICE("[icon2html(src,viewers(get_turf(src)))] \The [M] hatches out of \the [src]."))

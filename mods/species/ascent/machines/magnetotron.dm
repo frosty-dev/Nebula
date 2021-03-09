@@ -10,9 +10,9 @@
 	var/decl/language/speaking = GET_DECL(/decl/language/mantid/nonvocal)
 	for(var/mob/M in viewers())
 		if(M.can_speak(speaking))
-			to_chat(M, "[icon2html(src, viewers(src))] " + SPAN_WARNING("\The [src] flashes, \"[message]\""))
+			to_chat(M, "[icon2html(src,viewers(get_turf(src)))] " + SPAN_WARNING("\The [src] flashes, \"[message]\""))
 		else
-			to_chat(M, "[icon2html(src, viewers(src))] " + SPAN_WARNING("\The [src] flashes in a variety of ") + make_rainbow("rainbow hues") + SPAN_WARNING("."))
+			to_chat(M, "[icon2html(src,viewers(get_turf(src)))] " + SPAN_WARNING("\The [src] flashes in a variety of ") + make_rainbow("rainbow hues") + SPAN_WARNING("."))
 
 /obj/machinery/ascent_magnetotron/attack_hand(var/mob/user)
 	var/mob/living/carbon/human/target = locate() in contents
@@ -25,12 +25,12 @@
 		display_message("Invalid biological signature detected. Safety mechanisms engaged, only alates may undergo metamorphosis.")
 		return TRUE
 
-	visible_message(SPAN_NOTICE("[icon2html(src, viewers(src))] \The [src] begins to crackle and hum with energy as magnetic fields begin to fluctuate."))
+	visible_message(SPAN_NOTICE("[icon2html(src,viewers(get_turf(src)))] \The [src] begins to crackle and hum with energy as magnetic fields begin to fluctuate."))
 	if(!prob(100 / (get_total_gynes() + 1)))
 		// Oops it killed us.
 		target.visible_message(SPAN_DANGER("\The [target] shrieks loudly as \the [src] tears them apart!"))
 		target.gib()
-		visible_message(SPAN_NOTICE("[icon2html(src, viewers(src))] [src] shuts down with a loud bang, signaling the end of the process."))
+		visible_message(SPAN_NOTICE("[icon2html(src,viewers(get_turf(src)))] [src] shuts down with a loud bang, signaling the end of the process."))
 		return TRUE
 
 	if(do_after(target, 10 SECONDS, src, TRUE))
@@ -50,7 +50,7 @@
 		for(var/obj/item/organ/external/E in target.organs)
 			if(prob(60))
 				E.add_pain(rand(15,40))
-		visible_message(SPAN_NOTICE("[icon2html(src, viewers(src))] [src] shuts down with a loud bang, signaling the end of the process."))
+		visible_message(SPAN_NOTICE("[icon2html(src,viewers(get_turf(src)))] [src] shuts down with a loud bang, signaling the end of the process."))
 		playsound(src, 'sound/weapons/flashbang.ogg', 100)
 
 /obj/machinery/ascent_magnetotron/proc/get_total_gynes()

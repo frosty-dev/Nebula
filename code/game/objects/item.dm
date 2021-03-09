@@ -82,7 +82,7 @@
 	var/pickup_sound
 	///Sound uses when dropping the item, or when its thrown.
 	var/drop_sound
-	
+
 	var/datum/reagents/coating // reagent container for coating things like blood/oil, used for overlays and tracks
 
 /obj/item/proc/get_origin_tech()
@@ -674,7 +674,7 @@ var/list/slot_flags_enumeration = list(
 		return
 
 	if(!blood_data && istype(M))
-		blood_data = M.vessel.reagent_data[/decl/material/liquid/blood]		
+		blood_data = M.vessel.reagent_data[/decl/material/liquid/blood]
 	var/datum/extension/forensic_evidence/forensics = get_or_create_extension(src, /datum/extension/forensic_evidence)
 	forensics.add_data(/datum/forensics/blood_dna, blood_data["blood_DNA"])
 	add_coating(/decl/material/liquid/blood, amount, blood_data)
@@ -841,9 +841,9 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 
 /obj/item/proc/get_examine_line()
 	if(coating)
-		. = SPAN_WARNING("[html_icon(src)] [gender==PLURAL?"some":"a"] <font color='[coating.get_color()]'>stained</font> [name]")
+		. = SPAN_WARNING("[icon2html(src, viewers(get_turf(src)))] [gender==PLURAL?"some":"a"] <font color='[coating.get_color()]'>stained</font> [name]")
 	else
-		. = "[html_icon(src)] \a [src]"
+		. = "[icon2html(src, viewers(get_turf(src)))] \a [src]"
 	var/ID = GetIdCard()
 	if(ID)
 		. += "  <a href='?src=\ref[ID];look_at_id=1'>\[Look at ID\]</a>"
@@ -890,7 +890,7 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 		set_icon_state(citem.item_icon_state)
 		item_state = null
 		icon_override = CUSTOM_ITEM_MOB
-	
+
 /obj/item/proc/is_special_cutting_tool(var/high_power)
 	return FALSE
 

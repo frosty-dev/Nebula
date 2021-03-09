@@ -39,7 +39,7 @@
 		T = gender_datums[PLURAL]
 	else
 		if(icon)
-			msg += "[html_icon(icon)] " //fucking BYOND: this should stop dreamseeker crashing if we -somehow- examine somebody before their icon is generated
+			msg += "[icon2html(icon)] " //fucking BYOND: this should stop dreamseeker crashing if we -somehow- examine somebody before their icon is generated
 
 	if(!T)
 		// Just in case someone VVs the gender to something strange. It'll runtime anyway when it hits usages, better to CRASH() now with a helpful message.
@@ -141,13 +141,13 @@
 	//handcuffed?
 	if(handcuffed)
 		if(istype(handcuffed, /obj/item/handcuffs/cable))
-			msg += "<span class='warning'>[T.He] [T.is] [html_icon(handcuffed)] restrained with cable!</span>\n"
+			msg += "<span class='warning'>[T.He] [T.is] [icon2html(handcuffed)] restrained with cable!</span>\n"
 		else
-			msg += "<span class='warning'>[T.He] [T.is] [html_icon(handcuffed)] handcuffed!</span>\n"
+			msg += "<span class='warning'>[T.He] [T.is] [icon2html(handcuffed)] handcuffed!</span>\n"
 
 	//buckled
 	if(buckled)
-		msg += "<span class='warning'>[T.He] [T.is] [html_icon(buckled)] buckled to [buckled]!</span>\n"
+		msg += "<span class='warning'>[T.He] [T.is] [icon2html(buckled)] buckled to [buckled]!</span>\n"
 
 	//Jitters
 	var/jitteriness = GET_STATUS(src, STAT_JITTER)
@@ -359,7 +359,7 @@
 /mob/living/carbon/human/getHUDsource(hudtype)
 	var/obj/item/clothing/glasses/G = glasses
 	if(!istype(G))
-		return 
+		return
 	if(G.hud_type & hudtype)
 		return G
 	if(G.hud && (G.hud.hud_type & hudtype))

@@ -142,7 +142,7 @@ var/list/all_conveyor_switches = list()
 	if(!id_tag)
 		id_tag = newid
 	update_icon()
-	. = INITIALIZE_HINT_LATELOAD 
+	. = INITIALIZE_HINT_LATELOAD
 
 /obj/machinery/conveyor_switch/LateInitialize()
 	. = ..()
@@ -154,7 +154,7 @@ var/list/all_conveyor_switches = list()
 /obj/machinery/conveyor_switch/Destroy()
 	global.all_conveyor_switches -= src
 	. = ..()
-	
+
 // update the icon depending on the position
 
 /obj/machinery/conveyor_switch/on_update_icon()
@@ -282,7 +282,7 @@ var/list/all_conveyor_switches = list()
 			found = 1
 			break
 	if(!found)
-		to_chat(user, "[html_icon(src)]<span class=notice>The conveyor switch did not detect any linked conveyor belts in range.</span>")
+		to_chat(user, "[icon2html(src, user)]<span class=notice>The conveyor switch did not detect any linked conveyor belts in range.</span>")
 		return
 	var/obj/machinery/conveyor_switch/NC = new /obj/machinery/conveyor_switch(A, id_tag)
 	transfer_fingerprints_to(NC)
@@ -301,7 +301,7 @@ var/list/all_conveyor_switches = list()
 			found = 1
 			break
 	if(!found)
-		to_chat(user, "[html_icon(src)]<span class=notice>The conveyor switch did not detect any linked conveyor belts in range.</span>")
+		to_chat(user, "[icon2html(src, user)]<span class=notice>The conveyor switch did not detect any linked conveyor belts in range.</span>")
 		return
 	var/obj/machinery/conveyor_switch/oneway/NC = new /obj/machinery/conveyor_switch/oneway(A, id_tag)
 	transfer_fingerprints_to(NC)

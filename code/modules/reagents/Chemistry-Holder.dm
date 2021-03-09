@@ -70,7 +70,7 @@ GLOBAL_DATUM_INIT(temp_reagents_holder, /obj, new)
 		var/list/replace_self_with
 		var/replace_message
 		var/replace_sound
-	
+
 		if(!isnull(R.chilling_point) && R.type != R.bypass_cooling_products_for_root_type && LAZYLEN(R.chilling_products) && temperature <= R.chilling_point)
 			replace_self_with = R.chilling_products
 			if(R.chilling_message)
@@ -105,7 +105,7 @@ GLOBAL_DATUM_INIT(temp_reagents_holder, /obj, new)
 
 			if(my_atom)
 				if(replace_message)
-					my_atom.visible_message("<span class='notice'>[html_icon(my_atom)] [replace_message]</span>")
+					my_atom.visible_message("<span class='notice'>[icon2html(my_atom)] [replace_message]</span>")
 				if(replace_sound)
 					playsound(my_atom, replace_sound, 80, 1)
 

@@ -40,7 +40,7 @@
 		if(!QDELETED(core))
 			core.Uses--
 			if(core.Uses <= 0)
-				core.visible_message(SPAN_NOTICE("[html_icon(core)] \The [core]'s power is consumed in the reaction."))
+				core.visible_message(SPAN_NOTICE("[icon2html(core)] \The [core]'s power is consumed in the reaction."))
 				core.SetName("used slime extract")
 				core.desc = "This extract has been used up."
 
